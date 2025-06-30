@@ -1,0 +1,38 @@
+﻿@model otardavitashvili.Models.Person
+
+@{
+    ViewData["Title"] = "Edit Person";
+}
+
+<h1>Edit Person</h1>
+
+<h4>Person</h4>
+<hr />
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="PersonId" />
+
+    <div class="form-group">
+        <label asp-for="PersonName" class="control-label"></label>
+        <input asp-for="PersonName" class="form-control" />
+        <span asp-validation-for="PersonName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PersonLastName" class="control-label"></label>
+        <input asp-for="PersonLastName" class="form-control" />
+        <span asp-validation-for="PersonLastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BirthDate" class="control-label"></label>
+        <input asp-for="BirthDate" class="form-control" type="date" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+<a href="@Url.Action("Index", "Person")">Back to List</a>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<otardavitashvili.Models.Person>
+
+@{
+    ViewData["Title"] = "Person";
+}
+
+<h1>People</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Person")" class="btn btn-primary">Create New Person</a>
+</p>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Birth Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.PersonName</td>
+                <td>@person.PersonLastName</td>
+                <td>@person.BirthDate.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("Details", "Person", new { id = person.PersonId })" class="btn btn-info btn-sm">Details</a>
+                    <a href="@Url.Action("Edit", "Person", new { id = person.PersonId })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", "Person", new { id = person.PersonId })" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="@Url.Action("Create", "Cars", new { personId = person.PersonId })" class="btn btn-success btn-sm">Add Car</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

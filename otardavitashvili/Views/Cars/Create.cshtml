@@ -1,0 +1,44 @@
+﻿@model otardavitashvili.Models.Car
+
+@{
+    ViewData["Title"] = "Create Car";
+}
+
+<h1>Create Car</h1>
+
+<h4>Car</h4>
+<hr />
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        <input asp-for="Model" class="form-control" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReleaseDate" class="control-label"></label>
+        <input asp-for="ReleaseDate" class="form-control" type="number" />
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Speed" class="control-label"></label>
+        <input asp-for="Speed" class="form-control" type="number" />
+        <span asp-validation-for="Speed" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PersonId" class="control-label"></label>
+        <select asp-for="PersonId" class="form-control" asp-items="@(new SelectList(ViewBag.Persons, "PersonId", "FullName"))">
+            <option value="">-- Select Person --</option>
+        </select>
+
+        <span asp-validation-for="PersonId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a href="@Url.Action("Index", "Cars")" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

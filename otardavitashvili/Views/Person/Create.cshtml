@@ -1,0 +1,28 @@
+﻿@model otardavitashvili.Models.Person
+
+@{
+    ViewData["Title"] = "Create Person";
+}
+
+<h1>Create Person</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="PersonName">Name</label>
+        <input type="text" class="form-control" id="PersonName" name="PersonName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="PersonLastName">Last Name</label>
+        <input type="text" class="form-control" id="PersonLastName" name="PersonLastName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="BirthDate">Birth Date</label>
+        <input type="date" class="form-control" id="BirthDate" name="BirthDate" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a href="@Url.Action("Index", "Person")">Back to List</a>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<otardavitashvili.Models.Car>
+
+@{
+    ViewData["Title"] = "Cars";
+}
+
+<h1>Cars</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Cars")" class="btn btn-primary">Create New Car</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Release Year</th>
+            <th>Speed</th>
+            <th>Owner</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Model</td>
+                <td>@car.ReleaseDate</td>
+                <td>@car.Speed km/h</td>
+                <td>@car.Person?.PersonName @car.Person?.PersonLastName</td>
+                <td>
+                    <a href="@Url.Action("Details", "Cars", new { id = car.CarId })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", "Cars", new { id = car.CarId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "Cars", new { id = car.CarId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

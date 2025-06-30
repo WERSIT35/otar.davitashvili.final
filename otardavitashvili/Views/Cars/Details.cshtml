@@ -1,0 +1,16 @@
+﻿@model otardavitashvili.Models.Car
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<h1>Car Details</h1>
+
+<div class="mt-4">
+    <p><strong>Model:</strong> @Model.Model</p>
+    <p><strong>Release Year:</strong> @Model.ReleaseDate</p>
+    <p><strong>Speed:</strong> @Model.Speed km/h</p>
+    <p><strong>Owner:</strong> @(Model.Person?.PersonName) @(Model.Person?.PersonLastName)</p>
+</div>
+
+<a href="@Url.Action("Index", "Cars")" class="btn btn-secondary mt-3">Back to List</a>

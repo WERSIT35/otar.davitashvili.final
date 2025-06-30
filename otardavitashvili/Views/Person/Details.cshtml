@@ -1,0 +1,24 @@
+﻿@model otardavitashvili.Models.Person
+
+
+@{
+    ViewData["Title"] = "Person Details";
+}
+
+<h1>Person Details</h1>
+
+<div>
+    <h3>Name: @Model.PersonName</h3>
+    <h3>Last Name: @Model.PersonLastName</h3>
+    <h3>Birth Date: @Model.BirthDate.ToShortDateString()</h3>
+</div>
+
+<h3>Cars</h3>
+<ul>
+    @foreach (var car in Model.Cars)
+    {
+        <li>@car.Model - @car.ReleaseDate - @car.Speed km/h</li>
+    }
+</ul>
+
+<a href="@Url.Action("Index", "Person")">Back to List</a>
